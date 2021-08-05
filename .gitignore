@@ -1,0 +1,5 @@
+public/
+docs/
+*.swp
+.Rproj.user
+.Rhistory

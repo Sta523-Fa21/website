@@ -1,0 +1,18 @@
+<div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+  
+  <div>
+    <a href="https://sta523-fa21.github.io">
+      {{ .Site.Params.course | safeHTML }}
+      &nbsp;-&nbsp;
+      {{ .Site.Title | safeHTML }} {{ .Site.Params.subtitle | safeHTML }}
+    </a>
+  </div>
+
+  <ul class="pure-menu-list">
+    {{ range .Site.Menus.main }}
+      <li class="pure-menu-item">
+        <a class="pure-menu-link" {{ printf "href=%q" .URL | safeHTMLAttr }}>{{ .Pre }} {{ .Name }}</a>
+      </li>
+    {{end}}
+  </ul>
+</div>

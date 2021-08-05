@@ -1,0 +1,113 @@
+startdate: "2020-09-14"
+dateFormat: 'Mon, Jan 2'
+schedule:
+- week: 1
+  day: 0
+  lecture: "Welcome"
+  slides: Lec01
+  screencast:
+  notes:
+
+- week: 1
+  day: 4
+  lecture: "Logic and Types in R"
+  slides: Lec02
+  screencast:
+  readings:
+  - text: Tidyverse style guide
+    link: https://style.tidyverse.org/
+  - text: Adv-R - Data Structures
+    link: http://adv-r.had.co.nz/Data-structures.html
+  notes: <a href='https://github.com/statprog-s1-2020/exercises'>Exercises repo on GitHub</a> / <a href='https://www.youtube.com/watch?v=PDCI--oqbBc'>Exercise solutions</a>
+
+
+- week: 2
+  day: 0
+  lecture: "RStudio Cloud, git, & Github"
+  slides:
+  screencast:
+  readings:
+  - text: Happy Git and GitHub
+    link: http://happygitwithr.com/
+  notes:
+  
+- week: 2
+  day: 4
+  lecture: "Functions, attributes, & S3"
+  slides: Lec04
+  screencast:
+  readings:
+  - text: Adv R - OO Field Guide - S3
+    link: http://adv-r.had.co.nz/OO-essentials.html#s3
+  notes: <a href='https://youtu.be/kgGTT7Jq9BE'>Exercise solutions</a>
+
+- week: 3
+  day: 0
+  lecture: "Generic vectors, data frames, & subsetting"
+  slides: Lec05
+  screencast:
+  readings:
+  - text: Adv-R - Subsetting
+    link: http://adv-r.had.co.nz/Subsetting.html
+  notes: <a href='https://youtu.be/1OOQJqdjSgA'>Exercise solutions</a>
+
+- week: 3
+  day: 4
+  lecture: "Tidy data & dplyr"
+  slides: Lec06
+  screencast:
+  notes: https://youtu.be/FTi56rGHPzg
+  readings:
+  - text: dplyr Vignette
+    link: https://dplyr.tidyverse.org/articles/dplyr.html
+  - text: R4DS - tidy data
+    link: http://r4ds.had.co.nz/tidy-data.html
+  - text: Data transformation cheatsheet
+    link: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
+  notes: <a href='https://youtu.be/FTi56rGHPzg'>Exercise solutions</a>
+
+- week: 4
+  day: 0
+  lecture: "tidyr"
+  slides: Lec07
+  screencast:
+  readings:
+  - text: tidyr pivoting
+    link: https://tidyr.tidyverse.org/articles/pivot.html
+  - text: tidyr rectangling
+    link: https://tidyr.tidyverse.org/articles/rectangle.html
+  notes:
+
+- week: 4
+  day: 4
+  lecture: "Functional programming & purrr"
+  slides: Lec08
+  screencast:
+  readings:
+  - text: Purrr tutorial
+    link: https://jennybc.github.io/purrr-tutorial/index.html
+  - text: R4DS - Iteration
+    link: http://r4ds.had.co.nz/iteration.html
+  - text: purrr cheatsheet
+    link: https://github.com/rstudio/cheatsheets/raw/master/purrr.pdf
+  notes: 
+
+- week: 5
+  day: 0
+  lecture: "Visualization with ggplot2"
+  slides: Lec09
+  screencast:
+  readings:
+  - text:  R4DS - Visualization
+    link: http://r4ds.had.co.nz/data-visualisation.html
+  - text: ggplot2 Reference
+    link: http://ggplot2.tidyverse.org/reference/index.html
+  notes: 
+
+- week: 5
+  day: 4
+  lecture: "ggplot2 ecosystem & designing visualizations"
+  slides: Lec10
+  screencast:
+  readings:
+  notes:
