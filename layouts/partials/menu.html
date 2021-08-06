@@ -1,11 +1,12 @@
 <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
   
   <div>
-    <a href="https://sta523-fa21.github.io">
-      {{ .Site.Params.course | safeHTML }}
-      &nbsp;-&nbsp;
-      {{ .Site.Title | safeHTML }} {{ .Site.Params.subtitle | safeHTML }}
-    </a>
+      <span id="class">
+        {{ .Site.Params.course | safeHTML }} <br/>
+        <span id="semester">{{ .Site.Params.subtitle | safeHTML }}</span>
+      </span>
+      &nbsp;
+      {{ .Site.Title | safeHTML }}
   </div>
 
   <ul class="pure-menu-list">

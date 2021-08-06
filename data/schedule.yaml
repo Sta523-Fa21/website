@@ -1,15 +1,22 @@
-startdate: "2020-09-14"
+startdate: "2021-08-23"
 dateFormat: 'Mon, Jan 2'
 schedule:
 - week: 1
   day: 0
-  lecture: "Welcome"
+  lecture: "<i>No labs</i>"
   slides: Lec01
   screencast:
   notes:
 
 - week: 1
-  day: 4
+  day: 1
+  lecture: "Welcome & Syllabus"
+  slides: Lec01
+  screencast:
+  notes:
+
+- week: 1
+  day: 3
   lecture: "Logic and Types in R"
   slides: Lec02
   screencast:
@@ -18,12 +25,12 @@ schedule:
     link: https://style.tidyverse.org/
   - text: Adv-R - Data Structures
     link: http://adv-r.had.co.nz/Data-structures.html
-  notes: <a href='https://github.com/statprog-s1-2020/exercises'>Exercises repo on GitHub</a> / <a href='https://www.youtube.com/watch?v=PDCI--oqbBc'>Exercise solutions</a>
+  notes: 
 
 
 - week: 2
-  day: 0
-  lecture: "RStudio Cloud, git, & Github"
+  day: 1
+  lecture: "RStudio, git, & Github"
   slides:
   screencast:
   readings:
@@ -32,31 +39,31 @@ schedule:
   notes:
   
 - week: 2
-  day: 4
+  day: 3
   lecture: "Functions, attributes, & S3"
-  slides: Lec04
+  slides:
   screencast:
   readings:
   - text: Adv R - OO Field Guide - S3
     link: http://adv-r.had.co.nz/OO-essentials.html#s3
-  notes: <a href='https://youtu.be/kgGTT7Jq9BE'>Exercise solutions</a>
+  notes: 
 
 - week: 3
-  day: 0
+  day: 1
   lecture: "Generic vectors, data frames, & subsetting"
-  slides: Lec05
+  slides:
   screencast:
   readings:
   - text: Adv-R - Subsetting
     link: http://adv-r.had.co.nz/Subsetting.html
-  notes: <a href='https://youtu.be/1OOQJqdjSgA'>Exercise solutions</a>
+  notes: 
 
 - week: 3
-  day: 4
+  day: 3
   lecture: "Tidy data & dplyr"
-  slides: Lec06
+  slides:
   screencast:
-  notes: https://youtu.be/FTi56rGHPzg
+  notes:
   readings:
   - text: dplyr Vignette
     link: https://dplyr.tidyverse.org/articles/dplyr.html
@@ -64,12 +71,12 @@ schedule:
     link: http://r4ds.had.co.nz/tidy-data.html
   - text: Data transformation cheatsheet
     link: https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf
-  notes: <a href='https://youtu.be/FTi56rGHPzg'>Exercise solutions</a>
+  notes: 
 
 - week: 4
-  day: 0
+  day: 1
   lecture: "tidyr"
-  slides: Lec07
+  slides:
   screencast:
   readings:
   - text: tidyr pivoting
@@ -79,9 +86,9 @@ schedule:
   notes:
 
 - week: 4
-  day: 4
+  day: 3
   lecture: "Functional programming & purrr"
-  slides: Lec08
+  slides:
   screencast:
   readings:
   - text: Purrr tutorial
@@ -93,9 +100,9 @@ schedule:
   notes: 
 
 - week: 5
-  day: 0
-  lecture: "Visualization with ggplot2"
-  slides: Lec09
+  day: 1
+  lecture: "ggplot2"
+  slides:
   screencast:
   readings:
   - text:  R4DS - Visualization
@@ -105,9 +112,152 @@ schedule:
   notes: 
 
 - week: 5
-  day: 4
-  lecture: "ggplot2 ecosystem & designing visualizations"
-  slides: Lec10
+  day: 3
+  lecture: "Visualization Design"
+  slides:
   screencast:
   readings:
   notes:
+
+- week: 6
+  day: 1
+  lecture: "Text processing & Regular expressions"
+  slides: 
+  readings:
+  - text: Regex Cheat Sheet, 
+    link: http://perso.ens-lyon.fr/lise.vaudor/Rfigures/Expressions_regulieres/regexp.png
+  - text: stringr vignette
+    link: https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html
+  - text: regex tester
+    link: https://regexr.com/
+  notes: 
+
+- week: 6
+  day: 3
+  lecture: "Web scraping"
+  slides:
+  screencast:
+  readings:
+  - text: rvest - selector gadget vignette
+    link: https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html
+  notes: 
+
+
+- week: 7
+  day: 0
+  lecture: "<i>No lab - Fall break</i>"
+
+- week: 7
+  day: 1
+  lecture: "<i>No lab - Fall break</i>"
+
+
+- week: 7
+  day: 3
+  lecture: "Web APIs"
+  slides:
+  
+  
+
+- week: 8
+  day: 1
+  lecture: "Shiny"
+  screencast:
+  readings:
+  - text: Shiny Documentation & Gallery
+    link: http://shiny.rstudio.com/
+  - text: Widget Gallery
+    link: http://shiny.rstudio.com/gallery/widget-gallery.html
+  notes: 
+
+- week: 8
+  day: 3
+  lecture: "Reactive Data"
+  screencast:
+  readings: ""
+  notes: 
+
+- week: 9
+  day: 1
+  lecture: "Databases & SQL"
+  slides:
+  readings:
+  notes: 
+  
+
+- week: 9
+  day: 3
+  lecture: "SQL and dplyr"
+  slides:
+  readings:
+  - text: SQL Translation
+    link: https://cran.r-project.org/web/packages/dbplyr/vignettes/sql-translation.html
+  - text: dbplyr Vignette
+    link: https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html
+
+- week: 10
+  day: 1
+  lecture: "Profiling & Parallelization"
+  slides: 
+  screencast:
+  readings:
+  - text: profvis
+    link: https://rstudio.github.io/profvis/
+  - text: parallel package
+    link: https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf
+  - text: doMC and foreach
+    link: http://cran.r-project.org/web/packages/doMC/vignettes/gettingstartedMC.pdf
+  - text: furrr
+    link: https://github.com/DavisVaughan/furrr
+  notes: 
+
+- week: 10
+  day: 3
+  lecture: "Numerical Computing Basics"
+
+
+- week: 11
+  day: 1
+  lecture: "Spatial data"
+  slides:
+  screencast:
+  readings:
+  - text: "sf Vignettes"
+    link: https://cran.r-project.org/web/packages/sf/vignettes/
+  notes: 
+  
+- week: 11
+  day: 3
+  lecture: "Tidy Models"
+  screencast:
+  slides: 
+  notes: 
+
+- week: 12
+  day: 1
+  lecture: "More Tidy Models"
+  screencast:
+  slides: 
+  notes: 
+
+
+- week: 13
+  day: 1
+  lecture: "Writing Packages"
+  readings:
+  - text: R Packages
+    link: https://r-pkgs.org/
+  - text: Roxygen2
+    link: https://roxygen2.r-lib.org/
+  notes: 
+  
+- week: 13
+  day: 3
+  lecture: "Writing tests"
+  readings:
+  - text: R Packages
+    link: https://r-pkgs.org/
+  - text: Roxygen2
+    link: https://roxygen2.r-lib.org/
+  notes: 
+  

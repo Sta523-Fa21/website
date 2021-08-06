@@ -29,7 +29,7 @@
       {{ $prev.Set "week" -1 }}
       {{ range $schedule.schedule }}
         {{ $start := (time $schedule.startdate) }}
-        {{ $days := (add (mul (int .week) 7) (int .day)) }}
+        {{ $days := (add (mul (sub (int .week) 1) 7) (int .day)) }}
         {{ $date := $start.AddDate 0 0 (int $days)}}
 
         <tr class="schedule-other">
