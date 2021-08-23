@@ -6,20 +6,25 @@ name: gen_io_page
 
 jobs:
   gen_page:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/sta523-fa21/sta523-base:latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
     steps:
      
       - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@master
-      - uses: r-lib/actions/setup-pandoc@master
       
       - name: Install tools
         run: |
-          brew install hugo rsync
-
+          apt install hugo rsync
+      - name: Install Missing Packages
+        run: |
+          missing = checklist::missing_pkgs(dir = "static/slides/", recurse=FALSE)
+          if (length(missing) > 0)
+            install.packages(pkgs = missing)
+        shell: Rscript {0}
       - name: Build Site
         run: |
           make
