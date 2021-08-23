@@ -19,6 +19,10 @@ jobs:
       - name: Install tools
         run: |
           brew install hugo rsync
+          
+      - name: Install pkgs
+        run: |
+           Rscript -e "install.packages('rmarkdown')"
 
       - name: Build Site
         run: |
