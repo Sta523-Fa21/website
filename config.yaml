@@ -50,8 +50,8 @@ params:
   assignments:
     - name: Homework
       type: Team
-      value: 40%
+      value: 50%
     - name: Midterms
       value: 40%
     - name: Project
-      value: 20%
+      value: 10%
