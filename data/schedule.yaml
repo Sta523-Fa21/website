@@ -4,7 +4,7 @@ schedule:
 - week: 1
   day: 0
   lecture: "<i>No labs</i>"
-  slides: Lec01
+  slides:
   screencast:
   notes:
 
