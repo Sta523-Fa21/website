@@ -18,7 +18,7 @@ jobs:
       
       - name: Install tools
         run: |
-          apt install hugo rsync
+          apt install -y hugo rsync
       - name: Install Missing Packages
         run: |
           missing = checklist::missing_pkgs(dir = "static/slides/", recurse=FALSE)
