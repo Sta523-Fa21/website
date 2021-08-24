@@ -23,6 +23,7 @@ static/slides/%.html: static/slides/%.Rmd
 	
 static/slides/%.pdf: static/slides/%.html
 	wkhtmltopdf --page-width 120 --page-height 213 -B 0 -L 0 -R 0 -T 0 -O "Landscape" $< $@
+	ls -la static/slides/
 	#@cd static/slides/; \
 		#Rscript -e "xaringan::decktape('$<', '$@')"
 		#Rscript -e "xaringanBuilder::build_pdf('$(<F)')"
