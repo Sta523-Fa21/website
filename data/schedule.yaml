@@ -12,7 +12,7 @@ schedule:
   day: 1
   lecture: "Welcome & Syllabus"
   slides: Lec01
-  screencast:
+  screencast: https://www.youtube.com/watch?v=FJVqFMFUILc
   notes:
 
 - week: 1
