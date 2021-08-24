@@ -5,7 +5,7 @@ author: "Fall 2021"
 date: "<br/> Dr. Colin Rundel"
 output:
   xaringan::moon_reader:
-    css: ["xaringan-themer.css", "slides.css"]
+    css: ["slides.css"]
     lib_dir: libs
     nature:
       highlightStyle: solarized-light
@@ -173,9 +173,11 @@ class: center, middle
 
 ---
 
-## RStudio .float-right[ .small[https://rstudio.stat.duke.edu:8787] ]
+## RStudio 
 
-- Browser based, departmental RStudio instances
+.center[.large[https://rstudio.stat.duke.edu:8787]]
+
+- Browser based, departmental RStudio instance(s)
 
 - Requires Duke VPN or on campus connection to access
 
@@ -193,7 +195,9 @@ class: center, middle
 
 - All of your work and your membership (enrollment) in the organization is private
 
-- We will be distributing a survey after class to collection your account names and then inviting you to the organization.
+- We will be distributing a survey this afternoon to collection your account names 
+
+    - Later this week you will be invited to the course organization.
 
 ---
 
