@@ -29,6 +29,13 @@ jobs:
         run: |
           make all
       
+      - name: Clean up
+        run: |
+          rm -f docs/slides/.gitignore
+          rm -f docs/slides/.Rhistory
+          rm -rf docs/slides/.Rproj.user
+          rm -rf docs/slides/prev_*
+      
       - name: Config git
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
