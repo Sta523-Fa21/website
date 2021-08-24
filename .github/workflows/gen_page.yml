@@ -35,6 +35,7 @@ jobs:
           rm -f docs/slides/.Rhistory
           rm -rf docs/slides/.Rproj.user
           rm -rf docs/slides/prev_*
+          ls -la docs/slides/
       
       - name: Config git
         run: |
@@ -52,6 +53,8 @@ jobs:
       - name: Commit and push changes
         run: |
           cd sta523-fa21.github.io/
+          git status
           git add .
           git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA)"
+          git status
           git push
