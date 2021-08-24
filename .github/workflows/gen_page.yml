@@ -18,7 +18,7 @@ jobs:
       
       - name: Install tools
         run: |
-          apt install -y hugo rsync git
+          apt install -y hugo rsync git wkhtmltopdf
       - name: Install Missing Packages
         run: |
           missing = checklist::missing_pkgs(dir = "static/slides/", recurse=FALSE)
@@ -27,7 +27,7 @@ jobs:
         shell: Rscript {0}
       - name: Build Site
         run: |
-          make
+          make all
       
       - name: Config git
         run: |

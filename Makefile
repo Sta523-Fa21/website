@@ -23,4 +23,9 @@ static/slides/%.html: static/slides/%.Rmd
 	
 static/slides/%.pdf: static/slides/%.html
 	@cd static/slides/; \
-		Rscript -e "pagedown::chrome_print('$(<F)')"
+		#Rscript -e "xaringan::decktape('$<', '$@')"
+		#Rscript -e "xaringanBuilder::build_pdf('$(<F)')"
+		#Rscript -e "pagedown::chrome_print('$(<F)')"
+		wkhtmltopdf --page-width 120 --page-height 213 -B 0 -L 0 -R 0 -T 0 -O "Landscape" $< $@
+		# tries for a 16:9 aspect ratio
+		
