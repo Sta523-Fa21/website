@@ -17,7 +17,7 @@ schedule:
 
 - week: 1
   day: 3
-  lecture: "Logic and Types in R"
+  lecture: "Types and Control Flow in R"
   slides: Lec02
   screencast:
   readings:

@@ -8,7 +8,8 @@ body {
 }
 p {
   padding: 0;
-  margin: 12px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 h2 {
   font-family: 'Source Sans Pro', sans-serif;
@@ -30,16 +31,11 @@ a, a > code {
 
 .footnote {
   position: absolute;
-  bottom: 0.5em;
-  font-size: 80%;
-}
-
-.footnote::before {
-  content: "[";
-}
-
-.footnote::after {
-  content: "]"
+  font-size: 90%;
+  padding-left: 0px;
+  padding-right: 15%;
+  bottom: 0;
+  padding-bottom: 0.5em;
 }
 
 .remark-code, .remark-inline-code { 
@@ -88,6 +84,10 @@ a, a > code {
   clear: both;
 }
 
+.pad-top {
+  padding-top: 2em;
+}
+
 .col1 {
   float: left;
   width: 32%;
@@ -107,6 +107,28 @@ a, a > code {
 .col3 ~ * {
   clear: both;
 }
+
+
+.col3_left {
+  float: left;
+  width: 32%;
+}
+
+.col3_mid {
+  float: left;
+  width: 32%;
+  padding-left: 2%;
+}
+
+.col3_right {
+  float: right;
+  width: 32%;
+}
+
+.col3_right ~ * {
+  clear: both;
+}
+
 
 
 .question {
@@ -202,6 +224,6 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
     width: 700px;
 }
 
-.remark-slide-number {
+/*.remark-slide-number {
   visibility: hidden;
-}
+}*/
