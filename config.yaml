@@ -27,7 +27,7 @@ menu:
   - name: RStudio
     pre: <i class='fab fa-r-project fa-fw'></i>
     weight: 7
-    url: https://rstudio.stat.duke.edu:8787
+    url: http://rstudio.stat.duke.edu:8787
 
 params:
   subtitle: "(Fall 2021)"
