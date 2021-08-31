@@ -30,8 +30,8 @@ schedule:
 
 - week: 2
   day: 1
-  lecture: "RStudio, git, & Github"
-  slides:
+  lecture: "NAs, functions, loops, and merge conflicts"
+  slides: Lec03
   screencast:
   readings:
   - text: Happy Git and GitHub
@@ -40,7 +40,7 @@ schedule:
   
 - week: 2
   day: 3
-  lecture: "Functions, attributes, & S3"
+  lecture: "Attributes & S3"
   slides:
   screencast:
   readings:
