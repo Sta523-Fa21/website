@@ -33,13 +33,14 @@ class: middle, center
   
 ## Missing Values
   
-R uses `NA` to represent missing values in its data structures, what may not be obvious is that there are different `NA`s for the different types.
+R uses `NA` to represent missing values in its data structures, what may not be obvious is that there are different `NA`s for different atomic types.
 
 .pull-left[
 ```{r}
 typeof(NA)
 typeof(NA+1)
 typeof(NA+1L)
+typeof(c(NA,""))
 ```
 ]
 
@@ -50,6 +51,7 @@ typeof(NA+1L)
 typeof(NA_character_)
 typeof(NA_real_)
 typeof(NA_integer_)
+typeof(NA_complex_)
 ```
 ]
 
@@ -69,17 +71,31 @@ NA * 5
 
 .pull-right[
 ```{r}
-mean(c(1, 2, 3, NA))
 sqrt(NA)
 3^NA
+sum(c(1, 2, 3, NA))
 ```
 ]
+
+--
+
+<br/>
+
+Summarizing functions (e.g. `sum()`, `mean()`, `sd()`, etc.) will often have a `na.rm` argument which will allow you to *drop* missing values.
+
+```{r}
+sum(c(1, 2, 3, NA), na.rm = TRUE)
+mean(c(1, 2, 3, NA), na.rm = TRUE)
+```
+
 
 ---
   
 ## NAs are not always sticky 
   
 A useful mental model for `NA`s is to consider them as a unknown value that could take any of the possible values for that type. 
+
+--
 
 For numbers or characters this isn't very helpful, but for a logical value we know that the value must either be `TRUE` or `FALSE` and we can use that when deciding what value to return.
 
@@ -194,18 +210,18 @@ NaN * NA
 
 ---
 
-## Testing for `inf` and `NaN`
+## Testing for `Inf` and `NaN`
 
 `NaN` and `Inf` don't have the same testing issues that `NA`s do, but there are still convenience functions for testing for these types of values
 
 .pull-left[
 ```{r}
-NA
-1/0+1/0
-1/0-1/0
-1/0 == Inf
--1/0 == Inf
+is.finite(Inf)
+is.infinite(-Inf)
+is.nan(Inf)
+is.nan(-Inf)
 Inf > 1
+-Inf > 1
 ```
 ]
 
@@ -213,10 +229,11 @@ Inf > 1
   
 .pull-right[
 ```{r}
-is.finite(1/0+1/0)
-is.finite(1/0-1/0)
-is.nan(1/0-1/0)
+is.finite(NaN)
+is.infinite(NaN)
+is.nan(NaN)
 is.finite(NA)
+is.infinite(NA)
 is.nan(NA)
 ```
 ]
@@ -263,16 +280,49 @@ count: false
 
 ## Function Parts
 
-Functions are defined by two components: the arguments (`formals`) and the code (`body`). Functions are assigned names like any other object in R (using `=` or `<-`)
+Functions are defined by two components: the arguments (`formals`) and the code (`body`). 
+
+Functions are assigned names like any other object in R (using `=` or `<-`)
 
 ```{r}
-gcd = function(x1, y1, x2, y2) {
+gcd = function(x1, y1, x2 = 0, y2 = 0) {
   R = 6371 # Earth mean radius in km
   
   # distance in km
   acos(sin(y1)*sin(y2) + cos(y1)*cos(y2) * cos(x2-x1)) * R
 }
 ```
+
+--
+
+.pull-left[
+```{r}
+typeof(gcd)
+```
+]
+
+.pull-right[
+```{r}
+mode(gcd)
+```
+]
+
+--
+
+<div>
+.pull-left[
+```{r}
+formals(gcd)
+```
+]
+
+.pull-right[
+```{r}
+body(gcd)
+```
+]
+</div>
+
 
 ---
 
@@ -286,23 +336,59 @@ There are two approaches to returning values from functions in R - explicit and 
 
 ```{r}
 f = function(x) {
-  x + 1
   return(x * x)
 }
+
 f(2)
 ```
 
 --
 
+<br/>
+
 **Implicit** - return value of the last expression is returned.
 
 ```{r}
 g = function(x) {
-  x + 1
   x * x
 }
+
 g(3)
 ```
+
+---
+
+## Invisible returns
+
+Many functions in R make use of an invisible return value
+
+```{r}
+f = function(x) {
+  print(x)
+}
+
+y = f(1)
+y
+```
+
+--
+
+```{r}
+g = function(x) {
+  invisible(x)
+}
+```
+
+```{r}
+g(2)
+```
+
+```{r}
+z = g(2)
+z
+```
+
+
 
 ---
 
@@ -320,6 +406,8 @@ f(1:2)
 
 --
 
+<br/>
+
 ```{r}
 g = function(x) {
   list(x, "hello")
@@ -328,12 +416,16 @@ g = function(x) {
 g(1:2)
 ```
 
+.footnote[More on generic vectors next Tuesday]
+
 ---
 class: split-50
 
 ## Argument names
 
-When defining a function we are also implicitly defining names for the arguments, when calling the function we can use these names to pass arguments in a alternative order.
+When defining a function we explicitly define names for the arguments, which become variables within the scope of the function.
+
+When calling a function we can use these names to pass arguments in an alternative order.
 
 
 ```{r}
@@ -342,12 +434,16 @@ f = function(x, y, z) {
 }
 ```
 
+--
+
 .pull-left[
 ```{r, error=TRUE}
 f(1, 2, 3)
 f(z=1, x=2, y=3)
 ```
 ]
+
+--
 
 .pull-right[
 ```{r, error=TRUE}
@@ -358,14 +454,11 @@ f(y=2, 1, x=3)
 
 --
 
-.pad-top[
-
 ```{r, error=TRUE}
 f(1, 2, 3, 4)
 f(1, 2, m=3)
 ```
 
-]
 ---
 
 ## Argument defaults
@@ -378,12 +471,16 @@ f = function(x, y=1, z=1) {
 }
 ```
 
+--
+
 .pull-left[
 ```{r error=TRUE}
 f(3)
 f(x=3)
 ```
 ]
+
+--
 
 .pull-right[
 ```{r error=TRUE}
@@ -393,6 +490,8 @@ f(y=2, 2)
 ]
 
 --
+
+<br/>
 
 ```{r, error=TRUE}
 f()
