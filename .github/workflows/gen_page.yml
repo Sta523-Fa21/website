@@ -53,8 +53,10 @@ jobs:
       - name: Commit and push changes
         run: |
           cd sta523-fa21.github.io/
-          git status
+          #git status
           git add .
           git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA)"
           git status
-          git push
+          #git push
+          git -c credential.helper='!f() { echo "username=token"; echo "password=$API_TOKEN_GITHUB"; };f' push
+          
