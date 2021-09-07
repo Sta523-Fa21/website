@@ -57,6 +57,5 @@ jobs:
           git add .
           git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA)"
           git status
-          #git push
-          git -c credential.helper='!f() { echo "username=token"; echo "password=$API_TOKEN_GITHUB"; };f' push
+          git push
           
