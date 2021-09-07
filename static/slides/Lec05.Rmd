@@ -233,12 +233,11 @@ df
 
 --
 
-.pad-top[
 ```{r}
-str(df2)
-is.data.frame(df2)
+str(df)
+is.data.frame(df)
 ```
-]
+
 
 ---
 
