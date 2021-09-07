@@ -592,9 +592,9 @@ x[character()]
 y = list(1,4,7)
 ```
 ```{r}
-x[NULL]
-x[integer()]
-x[character()]
+y[NULL]
+y[integer()]
+y[character()]
 ```
 ]
 

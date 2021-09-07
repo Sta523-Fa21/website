@@ -52,7 +52,7 @@ schedule:
   day: 1
   lecture: "Data frames, matrices, & subsetting"
   slides: Lec05
-  screencast:
+  screencast: https://youtu.be/wjZ-g6p2yPA
   readings:
   - text: Adv-R - Subsetting
     link: http://adv-r.had.co.nz/Subsetting.html
