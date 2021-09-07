@@ -1,5 +1,5 @@
 ---
-title: "Lec 04 - Attributes & S3"
+title: "Lec 05 - Data frames, matrices, & subsetting"
 subtitle: "<br/> Statistical Programming"
 author: "Fall 2021"
 date: "<br/> Dr. Colin Rundel"
