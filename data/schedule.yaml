@@ -62,7 +62,7 @@ schedule:
   day: 3
   lecture: "Tidy data & dplyr"
   slides: Lec06
-  screencast:
+  screencast: https://youtu.be/SpCu96bLQw8
   notes:
   readings:
   - text: dplyr Vignette
