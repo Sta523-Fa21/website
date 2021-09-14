@@ -193,6 +193,7 @@ li{
   margin: 10px 0;
 }
 
+.larger { font-size: 150% }
 .large { font-size: 130% }
 .midi { font-size: 80% }
 .small { font-size: 70% }
