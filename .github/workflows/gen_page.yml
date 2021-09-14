@@ -18,6 +18,7 @@ jobs:
       
       - name: Install tools
         run: |
+          apt update
           apt install -y hugo rsync git wkhtmltopdf
       - name: Install Missing Packages
         run: |
