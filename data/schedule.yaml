@@ -89,7 +89,7 @@ schedule:
   day: 3
   lecture: "Functional programming & purrr"
   slides: Lec08
-  screencast:
+  screencast: https://youtu.be/aavYgTTLYxo
   readings:
   - text: Purrr tutorial
     link: https://jennybc.github.io/purrr-tutorial/index.html
