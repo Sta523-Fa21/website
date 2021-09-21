@@ -102,7 +102,7 @@ schedule:
 - week: 5
   day: 1
   lecture: "ggplot2"
-  slides:
+  slides: Lec09
   screencast:
   readings:
   - text:  R4DS - Visualization
