@@ -3,3 +3,5 @@ prev_uoe/*
 .Rhistory
 *.html
 *.pdf
+*_cache/
+*_files/
