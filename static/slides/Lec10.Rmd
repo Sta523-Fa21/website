@@ -290,6 +290,22 @@ knitr::include_graphics("imgs/gganim_weather.gif")
 ]
 
 .footnote[https://github.com/thomasp85/gganimate]
+
+---
+
+## More ggplot2 extensions
+
+.center[
+https://exts.ggplot2.tidyverse.org/gallery/
+]
+
+<br/>
+
+```{r echo=FALSE, out.width="66%"}
+knitr::include_graphics("imgs/ggplot2_exts.png")
+```
+
+
 ---
 class: center, middle
 
