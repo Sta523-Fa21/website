@@ -766,6 +766,8 @@ http://thewhyaxis.info/defaults/
 
 ## Other Resources
 
+- Duke Library - Center for Data and Visualization Sciences - https://library.duke.edu/data/
+
 - Tidy tuesday - https://github.com/rfordatascience/tidytuesday
 
 - Flowing data - https://flowingdata.com/
