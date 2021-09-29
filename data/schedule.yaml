@@ -123,6 +123,7 @@ schedule:
   day: 1
   lecture: "Text processing & Regular expressions"
   slides: Lec11
+  screencast: https://youtu.be/AZFgpeUwzK0
   readings:
   - text: stringr Cheat Sheet, 
     link: https://github.com/rstudio/cheatsheets/blob/master/strings.pdf
