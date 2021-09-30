@@ -140,7 +140,7 @@ schedule:
   screencast:
   readings:
   - text: rvest - selector gadget vignette
-    link: https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html
+    link: https://rvest.tidyverse.org/articles/articles/selectorgadget.html
   notes: 
 
 
