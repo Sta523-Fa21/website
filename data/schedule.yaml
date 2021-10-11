@@ -165,18 +165,14 @@ schedule:
 
 - week: 8
   day: 1
-  lecture: "Shiny"
+  lecture: "LQ and Dennys Scraping"
   screencast:
   readings:
-  - text: Shiny Documentation & Gallery
-    link: http://shiny.rstudio.com/
-  - text: Widget Gallery
-    link: http://shiny.rstudio.com/gallery/widget-gallery.html
   notes: 
 
 - week: 8
   day: 3
-  lecture: "Reactive Data"
+  lecture: "make & Makefiles"
   screencast:
   readings: ""
   notes: 
@@ -199,25 +195,24 @@ schedule:
   - text: dbplyr Vignette
     link: https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html
 
+
 - week: 10
   day: 1
-  lecture: "Profiling & Parallelization"
-  slides: 
+  lecture: "Shiny"
   screencast:
   readings:
-  - text: profvis
-    link: https://rstudio.github.io/profvis/
-  - text: parallel package
-    link: https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf
-  - text: doMC and foreach
-    link: http://cran.r-project.org/web/packages/doMC/vignettes/gettingstartedMC.pdf
-  - text: furrr
-    link: https://github.com/DavisVaughan/furrr
+  - text: Shiny Documentation & Gallery
+    link: http://shiny.rstudio.com/
+  - text: Widget Gallery
+    link: http://shiny.rstudio.com/gallery/widget-gallery.html
   notes: 
 
 - week: 10
   day: 3
-  lecture: "Numerical Computing Basics"
+  lecture: "Reactive Data"
+  screencast:
+  readings: ""
+  notes: 
 
 
 - week: 11
