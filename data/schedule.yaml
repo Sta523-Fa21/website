@@ -166,7 +166,7 @@ schedule:
 - week: 8
   day: 1
   lecture: "filesystems, Dennys & LQ scraping"
-  screencast:
+  screencast: https://youtu.be/enUkYWWSmlk
   slides: Lec14
   readings:
   - text: Project-oriented workflow
