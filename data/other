@@ -1,5 +1,6 @@
-
-
+startdate: "2021-08-23"
+dateFormat: 'Mon, Jan 2'
+schedule:
 - week: 10
   day: 1
   lecture: "Profiling & Parallelization"
