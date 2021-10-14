@@ -175,9 +175,14 @@ schedule:
 
 - week: 8
   day: 3
-  lecture: "make & Makefiles"
+  lecture: "make"
+  slides: Lec15
   screencast:
-  readings: ""
+  readings:
+  - text: Minimal make
+    link: https://kbroman.org/minimal_make/
+  - text: Why use make
+    link: https://bost.ocks.org/mike/make/
   notes: 
 
 - week: 9
