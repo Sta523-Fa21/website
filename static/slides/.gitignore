@@ -5,3 +5,4 @@ prev_uoe/*
 *.pdf
 *_cache/
 *_files/
+*.sqlite

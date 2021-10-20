@@ -189,6 +189,7 @@ schedule:
   day: 1
   lecture: "Databases & SQL"
   slides: Lec16
+  screencast: https://youtu.be/SQtOI3k2A3U
   readings:
   - text: SQLite Syntax
     link: https://www.sqlite.org/lang.html
@@ -199,8 +200,8 @@ schedule:
 
 - week: 9
   day: 3
-  lecture: "SQL and dplyr"
-  slides: 
+  lecture: "SQL <--> dplyr"
+  slides: Lec17
   readings:
   - text: SQL Translation
     link: https://cran.r-project.org/web/packages/dbplyr/vignettes/sql-translation.html
