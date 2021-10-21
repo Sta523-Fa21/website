@@ -782,3 +782,4 @@ QUERY PLAN
 
 * Index order matters - `flights (origin, dest)`, `flights (dest, origin)` are not the same and similarly are not the same as separate indexes on `dest` and `origin`.
 
+
