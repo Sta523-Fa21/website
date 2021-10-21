@@ -704,7 +704,7 @@ QUERY PLAN
 
 ## Group bys
 
-.pull-left[
+.pull-left[ .small[
 ```sql
 sqlite> select carrier, count(*) from flights group by carrier;
 carrier  count(*)
@@ -739,10 +739,11 @@ QUERY PLAN
 sqlite> create index flight_carrier on flights (carrier);
 Run Time: real 0.131 user 0.113260 sys 0.014691
 ```
+] ]
 
 --
 
-.pull-right[
+.pull-right[ .small[
 ```sql
 sqlite> select carrier, count(*) from flights group by carrier;
 carrier  count(*)
@@ -769,7 +770,7 @@ sqlite> explain query plan select carrier, count(*) from flights group by carrie
 QUERY PLAN
 `--SCAN flights USING COVERING INDEX flight_carrier
 ```
-]
+] ]
 
 ---
 
