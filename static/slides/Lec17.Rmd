@@ -503,21 +503,40 @@ QUERY PLAN
 `--SEARCH SUBQUERY 2 USING AUTOMATIC COVERING INDEX (tailnum=?)
 ```
 
+--
+
+Key things to look for:
+
+* `SCAN` - indicates that a full table scan is occurring 
+
+* `SEARCH` - indicates that only a subset of the table rows are visited
+
+* `AUTOMATIC COVERING INDEX` - indicates that a temporary index has been created for this query
+
 ---
 
 ## Adding indexes
 
 ```sql
-create index flight_tailnum on flights (tailnum);
+sqlite> create index flight_tailnum on flights (tailnum);
 Run Time: real 0.241 user 0.210099 sys 0.027611
 ```
 
 ```sql
-create index plane_tailnum on planes(tailnum);
+sqlite> create index plane_tailnum on planes (tailnum);
 Run Time: real 0.003 user 0.001407 sys 0.001442
 ```
 
 --
+
+```sql
+sqlite> .indexes
+flight_tailnum  plane_tailnum
+```
+
+---
+
+## Improvements?
 
 ```sql
 sqlite> select sum(seats) from flights left join planes using (tailnum);
@@ -535,9 +554,7 @@ sum(seats)
 Run Time: real 0.131 user 0.129165 sys 0.001214
 ```
 
----
-
-## `EXPLAIN QUERY PLAN` with tailnum indexes
+--
 
 ```sql
 sqlite> explain query plan select sum(seats) from flights left join planes using (tailnum);
@@ -555,4 +572,212 @@ QUERY PLAN
 `--SEARCH SUBQUERY 2 USING AUTOMATIC COVERING INDEX (tailnum=?)
 ```
 
+---
+
+## Filtering
+
+```sql
+sqlite> select origin, count(*) from flights where origin = "EWR";
+origin  count(*)
+------  --------
+EWR     120835
+Run Time: real 0.034 user 0.028124 sys 0.005847
+```
+
+```sql
+sqlite> explain query plan select origin, count(*) from flights where origin = "EWR";
+QUERY PLAN
+`--SCAN flights
+```
+
+--
+
+
+```sql
+sqlite> select origin, count(*) from flights where origin != "EWR";
+origin  count(*)
+------  --------
+LGA     215941
+Run Time: real 0.036 user 0.029798 sys 0.006171
+```
+
+```sql
+sqlite> explain query plan select origin, count(*) from flights where origin != "EWR";
+QUERY PLAN
+`--SCAN flights
+```
+
+--
+
+```sql
+sqlite> create index flights_orig_dest on flights (origin, dest);
+Run Time: real 0.267 user 0.232886 sys 0.030270
+```
+
+---
+
+## Filtering w/ indexes
+
+```sql
+sqlite> select origin, count(*) from flights where origin = "EWR";
+origin  count(*)
+------  --------
+EWR     120835
+Run Time: real 0.007 user 0.006419 sys 0.000159
+
+sqlite> select origin, count(*) from flights where origin != "EWR";
+origin  count(*)
+------  --------
+JFK     215941
+Run Time: real 0.020 user 0.019203 sys 0.000497
+```
+
+--
+
+```sql
+sqlite> explain query plan select origin, count(*) from flights where origin = "EWR";
+QUERY PLAN
+`--SEARCH flights USING COVERING INDEX flights_orig_dest (origin=?)
+
+sqlite> explain query plan select origin, count(*) from flights where origin != "EWR";
+QUERY PLAN
+`--SCAN flights USING COVERING INDEX flights_orig_dest
+```
+
+---
+
+## `!=` alternative
+
+```sql
+sqlite> select origin, count(*) from flights where origin > "EWR" OR origin < "EWR";
+origin  count(*)
+------  --------
+JFK     215941
+Run Time: real 0.022 user 0.021148 sys 0.001290
+```
+
+```sql
+sqlite> explain query plan select origin, count(*) from flights where origin > "EWR" OR origin < "EWR";
+QUERY PLAN
+`--MULTI-INDEX OR
+   |--INDEX 1
+   |  `--SEARCH flights USING COVERING INDEX flights_orig_dest (origin>?)
+   `--INDEX 2
+      `--SEARCH flights USING COVERING INDEX flights_orig_dest (origin<?)
+```
+
+---
+
+## What about dest?
+
+```sql
+sqlite> select dest, count(*) from flights where dest = "LAX";
+dest  count(*)
+----  --------
+LAX   16174
+Run Time: real 0.017 user 0.016513 sys 0.000237
+```
+
+```sql
+sqlite> explain query plan select dest, count(*) from flights where dest = "LAX";
+QUERY PLAN
+`--SCAN flights USING COVERING INDEX flights_orig_dest
+```
+
+--
+
+```sql
+sqlite> select dest, count(*) from flights where dest = "LAX" AND origin = "EWR";
+dest  count(*)
+----  --------
+LAX   4912
+Run Time: real 0.003 user 0.000729 sys 0.000778
+```
+
+```sql
+sqlite> explain query plan select dest, count(*) from flights where dest = "LAX" AND origin = "EWR";
+QUERY PLAN
+`--SEARCH flights USING COVERING INDEX flights_orig_dest (origin=? AND dest=?)
+```
+
+---
+
+## Group bys
+
+.pull-left[
+```sql
+sqlite> select carrier, count(*) from flights group by carrier;
+carrier  count(*)
+-------  --------
+9E       18460
+AA       32729
+AS       714
+B6       54635
+DL       48110
+EV       54173
+F9       685
+FL       3260
+HA       342
+MQ       26397
+OO       32
+UA       58665
+US       20536
+VX       5162
+WN       12275
+YV       601
+Run Time: real 0.172 user 0.114274 sys 0.018946
+
+sqlite> explain query plan select carrier, count(*) from flights group by carrier;
+QUERY PLAN
+|--SCAN flights
+`--USE TEMP B-TREE FOR GROUP BY
+```
+
+--
+
+```sql
+sqlite> create index flight_carrier on flights (carrier);
+Run Time: real 0.131 user 0.113260 sys 0.014691
+```
+
+--
+
+.pull-right[
+```sql
+sqlite> select carrier, count(*) from flights group by carrier;
+carrier  count(*)
+-------  --------
+9E       18460
+AA       32729
+AS       714
+B6       54635
+DL       48110
+EV       54173
+F9       685
+FL       3260
+HA       342
+MQ       26397
+OO       32
+UA       58665
+US       20536
+VX       5162
+WN       12275
+YV       601
+Run Time: real 0.023 user 0.022521 sys 0.000411
+
+sqlite> explain query plan select carrier, count(*) from flights group by carrier;
+QUERY PLAN
+`--SCAN flights USING COVERING INDEX flight_carrier
+```
+]
+
+---
+
+## Why not index all the things?
+
+* As mentioned before, creating an index requires additional storage (memory or disk)
+
+* Additionally, when adding or updating data - indexes also need to be updated, making these processes slower (read vs. write tradeoffs)
+
+* Index order matters - `flights (origin, dest)`, `flights (dest, origin)` are not the same and similarly are not the same as separate indexes on `dest` and `origin`.
 
