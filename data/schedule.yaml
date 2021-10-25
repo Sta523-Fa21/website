@@ -202,6 +202,7 @@ schedule:
   day: 3
   lecture: "SQL <--> dplyr"
   slides: Lec17
+  screencast: https://youtu.be/oJ8KIQXmEUs
   readings:
   - text: SQL Translation
     link: https://cran.r-project.org/web/packages/dbplyr/vignettes/sql-translation.html
