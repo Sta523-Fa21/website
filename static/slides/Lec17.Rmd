@@ -732,8 +732,7 @@ QUERY PLAN
 |--SCAN flights
 `--USE TEMP B-TREE FOR GROUP BY
 ```
-
---
+]
 
 ```sql
 sqlite> create index flight_carrier on flights (carrier);

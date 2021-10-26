@@ -215,10 +215,12 @@ schedule:
   lecture: "Shiny"
   screencast:
   readings:
-  - text: Shiny Documentation & Gallery
+  - text: Shiny Docs & Gallery
     link: http://shiny.rstudio.com/
   - text: Widget Gallery
     link: http://shiny.rstudio.com/gallery/widget-gallery.html
+  - text: Mastering Shiny
+    link: https://mastering-shiny.org/
   notes: 
 
 - week: 10
