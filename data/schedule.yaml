@@ -226,8 +226,8 @@ schedule:
 
 - week: 10
   day: 3
-  lecture: "Reactive Data"
-  screencast:
+  lecture: "Shiny - ABC"
+  screencast: https://youtu.be/oyw3x4f78M0
   readings: ""
   notes: 
 
