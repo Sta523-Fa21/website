@@ -231,9 +231,21 @@ schedule:
   readings: ""
   notes: 
 
-
 - week: 11
   day: 1
+  lecture: "Profiling & Parallelization"
+  slides: Lec20
+  screencast:
+  readings:
+  - text: "parallel Vignettes"
+    link: https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf
+  - text: "furrr"
+    link: https://furrr.futureverse.org/
+  notes: 
+
+
+- week: 11
+  day: 3
   lecture: "Spatial data"
   slides:
   screencast:
@@ -242,15 +254,15 @@ schedule:
     link: https://cran.r-project.org/web/packages/sf/vignettes/
   notes: 
   
-- week: 11
-  day: 3
+- week: 12
+  day: 1
   lecture: "Tidy Models"
   screencast:
   slides: 
   notes: 
 
 - week: 12
-  day: 1
+  day: 3
   lecture: "More Tidy Models"
   screencast:
   slides: 
