@@ -6,3 +6,4 @@ prev_uoe/*
 *_cache/
 *_files/
 *.sqlite
+*.icloud

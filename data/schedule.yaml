@@ -235,7 +235,7 @@ schedule:
   day: 1
   lecture: "Profiling & Parallelization"
   slides: Lec20
-  screencast:
+  screencast: https://youtu.be/YY_8aMHKxck
   readings:
   - text: "parallel Vignettes"
     link: https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf
@@ -247,7 +247,7 @@ schedule:
 - week: 11
   day: 3
   lecture: "Spatial data"
-  slides:
+  slides: Lec21
   screencast:
   readings:
   - text: "sf Vignettes"
