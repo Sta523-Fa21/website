@@ -76,7 +76,7 @@ library(tidymodels)
 .pull-right[
 ```{r out.width = "100%", fig.height=4}
 ggplot(books, aes(x=volume, y=weight, color = cover)) +
-  geom_point()
+  geom_point(size=2)
 ```
 ]
 
@@ -181,7 +181,7 @@ broom::augment(lm_tm, new_data = books)
 ## Putting it together
 
 .small[
-```{r fig.height=4}
+```{r fig.height=3}
 lm_tm %>%
   augment(
     new_data = tidyr::expand_grid(
@@ -229,28 +229,37 @@ show_engines("linear_reg")
 ]
 
 
-.footnote[
-See `?details_linear_reg_stan` for details within `parsnip`
-]
-
 ---
 
-## Fitting with `rstan`
-
-.small[
-```{r}
-bayes_tm %>%
-  translate()
-```
-]
-
---
+## Fitting with `rstanarm`
 
 .small[
 ```{r}
 (bayes_tm = bayes_tm %>%
   fit(weight ~ volume * cover, data = books)
 )
+```
+]
+
+
+.footnote[
+See `?details_linear_reg_stan` for details within `parsnip`
+]
+
+---
+
+## What was actually run?
+
+.small[
+```{r}
+linear_reg() %>% 
+  set_engine(
+    "stan", 
+    prior_intercept = rstanarm::student_t(df = 1), 
+    prior = rstanarm::student_t(df = 1),
+    seed = 1234
+  ) %>%
+  translate()
 ```
 ]
 
@@ -283,7 +292,7 @@ augment(bayes_tm, new_data=books)
 ## Predictions
 
 .small[
-```{r fig.height=4}
+```{r fig.height=3}
 bayes_tm %>%
   augment(
     new_data = tidyr::expand_grid(
@@ -340,7 +349,7 @@ count: false
 ```
 
 .footnote[
-Source: The (full) data are from [data.world](https://data.world/anujjain7/the-office-imdb-ratings-dataset), by way of [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-17/readme.md).
+These data are from [data.world](https://data.world/anujjain7/the-office-imdb-ratings-dataset), by way of [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-17/readme.md).
 ]
 
 ---
