@@ -690,5 +690,7 @@ tune::collect_metrics(office_fit_folds)
 tune::collect_metrics(office_fit_folds, summarize = FALSE) %>%
   filter(.metric == "rmse")
 ```
-
+.footnote[
+More on the `tune` package next time
+]
 
