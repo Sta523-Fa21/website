@@ -267,10 +267,13 @@ schedule:
 - week: 12
   day: 3
   lecture: "More Tidy Models"
-  screencast:
+  screencast: https://youtu.be/sQKmPs8IBZ4
   slides: 
   notes: 
 
+- week: 13
+  day: 0
+  lecture: "<i>No labs</i>"
 
 - week: 13
   day: 1
