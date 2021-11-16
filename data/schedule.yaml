@@ -279,6 +279,7 @@ schedule:
   day: 1
   lecture: "Writing Packages"
   slides: Lec24
+  screencast: https://youtu.be/XXMHDwi9q1s
   readings:
   - text: R Packages
     link: https://r-pkgs.org/
