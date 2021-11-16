@@ -278,9 +278,12 @@ schedule:
 - week: 13
   day: 1
   lecture: "Writing Packages"
+  lecture: Lec24
   readings:
   - text: R Packages
     link: https://r-pkgs.org/
+  - text: usethis
+    link: https://usethis.r-lib.org/
   - text: Roxygen2
     link: https://roxygen2.r-lib.org/
   notes: 
