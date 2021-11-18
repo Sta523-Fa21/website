@@ -277,7 +277,7 @@ schedule:
 
 - week: 13
   day: 1
-  lecture: "Writing Packages"
+  lecture: "R Packages"
   slides: Lec24
   screencast: https://youtu.be/XXMHDwi9q1s
   readings:
@@ -291,7 +291,8 @@ schedule:
   
 - week: 13
   day: 3
-  lecture: "Writing tests"
+  lecture: "More R Packages"
+  slides: Lec25
   readings:
   - text: R Packages
     link: https://r-pkgs.org/
