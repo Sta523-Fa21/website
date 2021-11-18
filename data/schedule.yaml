@@ -294,9 +294,7 @@ schedule:
   lecture: "More R Packages"
   slides: Lec25
   readings:
-  - text: R Packages
-    link: https://r-pkgs.org/
-  - text: Roxygen2
-    link: https://roxygen2.r-lib.org/
+  - text: testthat
+    link: https://testthat.r-lib.org/
   notes: 
   
