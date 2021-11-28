@@ -293,6 +293,7 @@ schedule:
   day: 3
   lecture: "More R Packages"
   slides: Lec25
+  screencast: https://youtu.be/Mm52rDAq21U
   readings:
   - text: testthat
     link: https://testthat.r-lib.org/
